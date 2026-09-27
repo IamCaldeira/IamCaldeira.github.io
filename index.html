@@ -56,8 +56,15 @@ footer{
   display:flex; align-items:center; justify-content:center; gap:18px;
   padding:12px; padding-bottom:calc(12px + env(safe-area-inset-bottom,0px)); border-top:1px solid var(--border); flex-shrink:0; z-index:8; background:var(--bg);
 }
-.navbtn{border:1.5px solid var(--border); background:var(--card); color:var(--text); border-radius:50%; width:36px; height:36px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:15px;}
-.navbtn:disabled{opacity:.3; cursor:default;}
+.navbtn{
+  border:none; background:var(--accent); color:#fff; border-radius:50%;
+  width:42px; height:42px; display:flex; align-items:center; justify-content:center; cursor:pointer;
+  box-shadow:0 3px 10px rgba(15,61,122,.35); transition:transform .15s ease, box-shadow .15s ease, background .2s;
+}
+.navbtn svg{width:19px; height:19px;}
+.navbtn:hover:not(:disabled){transform:translateY(-2px); box-shadow:0 6px 16px rgba(15,61,122,.42);}
+.navbtn:active:not(:disabled){transform:translateY(0); box-shadow:0 2px 6px rgba(15,61,122,.35);}
+.navbtn:disabled{opacity:.28; cursor:default; box-shadow:none; transform:none;}
 .dots{display:flex; gap:6px; flex-wrap:wrap; max-width:50vw; justify-content:center;}
 .dot{width:7px; height:7px; border-radius:50%; background:var(--border); cursor:pointer; flex-shrink:0;}
 .dot.active{background:var(--accent-c,var(--accent)); width:18px; border-radius:4px; transition:width .2s;}
@@ -126,9 +133,9 @@ footer{
 </div>
 
 <footer>
-  <button class="navbtn" id="prev" aria-label="Anterior">&#8592;</button>
+  <button class="navbtn" id="prev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
   <div class="dots" id="dots"></div>
-  <button class="navbtn" id="next" aria-label="Próximo">&#8594;</button>
+  <button class="navbtn" id="next" aria-label="Próximo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
 </footer>
 
 <script>
